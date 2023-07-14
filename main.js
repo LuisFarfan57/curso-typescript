@@ -1,4 +1,15 @@
 "use strict";
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
 (() => {
     const batman = 'Bruce';
     const superman = 'Clark';
@@ -26,6 +37,194 @@
     const poder = '100';
     const largoDelPoder = poder.length;
     console.log(largoDelPoder);
+})();
+(() => {
+    const avengers = {
+        nick: 'Samuel L. Jackson',
+        ironman: 'Robert Downey Jr.',
+        vision: 'Paul Bettany',
+        activo: true,
+        poder: 1500
+    };
+    const { poder, activo, vision } = avengers;
+    console.log(vision.toUpperCase());
+    const printAvenger = (_a) => {
+        var { vision } = _a, rest = __rest(_a, ["vision"]);
+        console.log(vision);
+        console.log(rest.ironman);
+    };
+    printAvenger(avengers);
+    const avengersArr = ['Samuel L. Jackson', 'Robert Downey Jr.', 'Paul Bettany'];
+    const ironman = avengersArr[1];
+    const [, ironman2, vision2] = avengersArr;
+    const avengersTupla = ['Samuel L. Jackson', true, 1500];
+    const [capitan, activo2, poder2] = avengersTupla;
+    console.log(capitan, activo2, poder2);
+})();
+(() => {
+    const ironman = {
+        name: 'Ironman',
+        weapon: 'Armorsuit'
+    };
+    const captainAmerica = {
+        name: 'Capitan America',
+        weapon: 'Shield'
+    };
+    const thor = {
+        name: 'Thor',
+        weapon: 'Mjolnir'
+    };
+    const avengers = [ironman, thor, captainAmerica];
+    for (const avenger of avengers) {
+        console.log(avenger.name, avenger.weapon);
+    }
+});
+(() => {
+    const nombre = 'Fernando';
+    const getName = () => {
+        console.log('Viejo getName');
+    };
+})();
+(() => {
+    class Mutante {
+        constructor(name, realName) {
+            this.name = name;
+            this.realName = realName;
+        }
+        get fullName() {
+            return `${this.name} ${this.realName}`;
+        }
+    }
+    class Xmen extends Mutante {
+        salvarMundo() {
+            return 'Mundo a salvo!';
+        }
+    }
+    class Villian extends Mutante {
+        conquistarMundo() {
+            return 'Mundo conquistado!';
+        }
+    }
+    const wolverine = new Xmen('Wolverine', 'Logan');
+    const magneto = new Villian('Magneto', 'Magnus');
+    console.log(wolverine.name + ' ' + wolverine.salvarMundo());
+    console.log(magneto.name + ' ' + magneto.conquistarMundo());
+    const printName = (personaje) => {
+        console.log(personaje.fullName);
+    };
+    printName(wolverine);
+    printName(magneto);
+})();
+(() => {
+    class Avenger {
+        constructor(name, team, realName) {
+            this.name = name;
+            this.team = team;
+            this.realName = realName;
+        }
+    }
+    Avenger.avgAge = 35;
+    const antman = new Avenger('Antman', 'Capitan');
+    console.log(antman);
+    console.log(Avenger.avgAge);
+})();
+(() => {
+    class Avenger {
+        constructor(name, realName) {
+            this.name = name;
+            this.realName = realName;
+        }
+        getFullName() {
+            return `${this.name} ${this.realName}`;
+        }
+        getFullProtectedName() {
+            return `${this.name} ${this.realName}`;
+        }
+    }
+    class Xmen extends Avenger {
+        constructor(name, realName, isMutant) {
+            super(name, realName);
+            this.isMutant = isMutant;
+        }
+        getFullNameDesdeXmen() {
+            console.log(super.getFullProtectedName());
+        }
+    }
+    const wolverine = new Xmen('Wolverine', 'Logan', true);
+    console.log(wolverine);
+})();
+(() => {
+    class Avenger {
+        constructor(name, realName) {
+            this.name = name;
+            this.realName = realName;
+        }
+        get fullName() {
+            return `${this.name} ${this.realName}`;
+        }
+        set fullName(name) {
+            if (name.length < 3) {
+                throw new Error('El nombre es muy corto');
+            }
+            this.name = name;
+        }
+    }
+    const ironman = new Avenger('Ironman', 'Tony Stark');
+    console.log(ironman.fullName);
+    ironman.fullName = 'Luis';
+})();
+(() => {
+    class Avenger {
+        constructor(name, team, realName, avgAge = 55) {
+            this.name = name;
+            this.team = team;
+            this.realName = realName;
+            Avenger.avgAge = avgAge;
+        }
+        bio() {
+            return this.createBio();
+        }
+        createBio() {
+            return `${this.name} (${this.team})`;
+        }
+        static getAvgAge() {
+            return this.avgAge;
+        }
+    }
+    Avenger.avgAge = 35;
+    const antman = new Avenger('Antman', 'Capitan', 'Scott Lang');
+    console.log(antman.bio());
+    console.log(Avenger.getAvgAge());
+})();
+(() => {
+    class Apocalipsis {
+        constructor(name) {
+            this.name = name;
+        }
+        static callApocalipsis() {
+            if (!Apocalipsis.instance) {
+                Apocalipsis.instance = new Apocalipsis('Soy Apocalipsis... el ÚNICO');
+            }
+            return Apocalipsis.instance;
+        }
+    }
+    const apocalipsis2 = Apocalipsis.callApocalipsis();
+    const apocalipsis3 = Apocalipsis.callApocalipsis();
+    console.log(apocalipsis2, apocalipsis3);
+})();
+(() => {
+    class Avenger {
+        constructor(name, team, realName, avgAge = 55) {
+            this.name = name;
+            this.team = team;
+            this.realName = realName;
+            Avenger.avgAge = avgAge;
+        }
+    }
+    Avenger.avgAge = 35;
+    const antman = new Avenger('Antman', 'Capitan', 'Scott Lang');
+    console.log(antman);
+    console.log(Avenger.avgAge);
 })();
 (() => {
     const fullName = (firstName, lastName, upper = false) => {
