@@ -226,6 +226,45 @@ var __rest = (this && this.__rest) || function (s, e) {
     console.log(antman);
     console.log(Avenger.avgAge);
 })();
+console.log('Hola Mundo!');
+(() => {
+    const conducirBatimovil = (auto) => {
+        auto.encender = true;
+        auto.velocidadMaxima = 100;
+        auto.acelerar();
+    };
+    const batimovil = {
+        encender: false,
+        velocidadMaxima: 0,
+        acelerar() {
+            console.log("...... gogogo!!!");
+        }
+    };
+    const guason = {
+        reir: true,
+        comer: true,
+        llorar: false
+    };
+    const reir = (guason) => {
+        if (guason.reir) {
+            console.log("JAJAJAJA");
+        }
+    };
+    const ciudadGotica = (ciudadanos) => {
+        return ciudadanos.length;
+    };
+    class Persona {
+        constructor(nombre, edad, sexo, estadoCivil) {
+            this.nombre = nombre;
+            this.edad = edad;
+            this.sexo = sexo;
+            this.estadoCivil = estadoCivil;
+        }
+        imprimirBio() {
+            console.log(`Nombre: ${this.nombre}, Edad: ${this.edad}, Sexo: ${this.sexo}, Estado Civil: ${this.estadoCivil}`);
+        }
+    }
+})();
 (() => {
     const fullName = (firstName, lastName, upper = false) => {
         return `${firstName} ${lastName || '----'}`;
@@ -298,6 +337,71 @@ var __rest = (this && this.__rest) || function (s, e) {
     let noHaceNadaTampoco;
     noHaceNadaTampoco = noHaceNada;
 })();
+(() => {
+    let flash = {
+        name: 'Barry Allen',
+        age: 24,
+        powers: ['Super velocidad']
+    };
+    flash = {
+        name: 'Luis',
+        powers: ['Super velocidad'],
+        getName() {
+            return this.name;
+        },
+    };
+})();
+(() => {
+    class Mutant {
+        constructor(age, name, realName) {
+            this.age = age;
+            this.name = name;
+            this.realName = realName;
+        }
+        mutantPower(id) {
+            return this.name + ' ' + this.realName;
+        }
+    }
+})();
+(() => {
+    const client = {
+        name: 'Juan',
+        age: 25,
+        address: {
+            id: 125,
+            zip: 'ABC',
+            city: 'New York'
+        }
+    };
+})();
+(() => {
+    let addNumbersFunction = (a, b) => { return 10; };
+})();
+(() => {
+    const client = {
+        name: 'Juan',
+        age: 25,
+        address: {
+            id: 125,
+            zip: 'ABC',
+            city: 'New York'
+        },
+        getFullAddress(id) {
+            var _a;
+            return ((_a = this.address) === null || _a === void 0 ? void 0 : _a.city) || '';
+        }
+    };
+})();
+var Validations;
+(function (Validations) {
+    Validations.validateText = (text) => {
+        return text.length > 3;
+    };
+    Validations.validateDate = (myDate) => {
+        return isNaN(myDate.valueOf());
+    };
+})(Validations || (Validations = {}));
+Validations.validateText('Luis');
 const batimovil = {
     carroceria: "Negra",
     modelo: "6x6",
