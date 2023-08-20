@@ -1,3 +1,7 @@
-import { Hero } from "./classes/Hero"
+import { getPokemon } from "./generics/getPokemon";
+import { Pokemon } from "./interfaces/pokemon"
 
-const hero = new Hero('Superman', 2, 30)
+getPokemon(8)
+  .then((pokemon: Pokemon) => {
+    console.log(pokemon.name)
+  })
