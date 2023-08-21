@@ -22,5 +22,5 @@ const deadpool = {
   dangerLevel: 130
 }
 
-console.log(arrowGenericFunction<Hero>(deadpool).dangerLevel) // Se queja porque dangerLevel no es parte de Hero
+// console.log(arrowGenericFunction<Hero>(deadpool).dangerLevel) // Se queja porque dangerLevel no es parte de Hero
 console.log(arrowGenericFunction<Villian>(deadpool).dangerLevel) // Pero se le puede indicar que es tipo Villano
